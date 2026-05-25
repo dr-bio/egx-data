@@ -13,6 +13,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install
-        run: pip install tvdatafeed pandas
+        run: pip install git+https://github.com/rongardF/tvdatafeed.git pandas
       - name: Test EGX Data
         run: python -c "from tvDatafeed import TvDatafeed, Interval; tv = TvDatafeed(); df = tv.get_hist(symbol='COMI', exchange='EGX', interval=Interval.in_daily, n_bars=10); print('SUCCESS' if df is not None else 'FAILED'); print(df)"
